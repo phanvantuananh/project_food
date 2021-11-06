@@ -25,6 +25,8 @@
         "lint-staged": "^11.2.0"
     },
     "lint-staged": {
-        "**/*.php": ["./vendor/bin/phpcs ."]
+        "**/*.php": [
+            "./vendor/bin/phpcs ."
+        ]
     }
 }
