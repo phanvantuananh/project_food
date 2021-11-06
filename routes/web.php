@@ -21,7 +21,6 @@ Route::get('/', function () {
     return view('home');
 });
 Route::get('/test', [\App\Http\Controllers\TestController::class, 'index']);
-
 ###################
 # AUTH
 ###################
