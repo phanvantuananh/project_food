@@ -11,10 +11,14 @@
     <meta name="app.lang" content="{{ config('app.locale')  }}">
     <meta name="robots" content="index,follow"/>
     <meta name="revisit-after" content="1 days">
-    <title>Laravel </title>
     <meta name="title" content="Laravel"/>
     <meta name="description" content="Laravel"/>
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
+    {{--  link logo icon  --}}
+    <link rel="shortcut icon" type="image/png" href="https://t1.thpservices.com/previewimage/gallil/5fb12f19b59ec489f460a428863408d3/esy-059323298.jpg">
+    <title>Wow Food</title>
+    {{--  link font awesome  --}}
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
     <!-- Normalize CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
@@ -25,6 +29,6 @@
     @stack('style')
 
     <!-- JS head -->
-    @stack('script-head')
     @stack('js-head')
+    @stack('script-head')
 </head>
