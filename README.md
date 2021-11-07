@@ -39,4 +39,4 @@ Common types according to [commitlint-config-conventional (based on the Angular 
 - style
 - test
 
-These can be modified by [your own configuration](#config).
+These can be modified by [your own configuration](#Mconfig).
