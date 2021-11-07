@@ -1,5 +1,7 @@
 // Fonts
 @import 'font';
+// import bootstrap 5
+@import "~bootstrap/scss/bootstrap";
 
 // Variables
 @import 'variables';
@@ -16,3 +18,4 @@
 @import "buttons";
 
 @import "view/order";
+
