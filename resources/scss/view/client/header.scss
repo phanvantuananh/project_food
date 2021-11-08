@@ -1,0 +1,49 @@
+.menu__top {
+    margin-top: 15px;
+    position: absolute;
+    top: 0;
+    left: 15%;
+    right: 15%;
+    &__logo {
+        float: left;
+        font-family: "Playfair Display", serif;
+        font-size: 40px;
+        font-weight: 700;
+        font-style: italic;
+        color: white;
+        a {
+            color: white;
+            text-decoration: none;
+        }
+    }
+    &__icon__toggle {
+        display: none;
+    }
+    &__main__menu {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        padding-top: 15px;
+        font-size: 15px;
+        ul {
+            li {
+                display: inline-block;
+                a {
+                    color: #fff;
+                    font-weight: 700;
+                    padding: 10px;
+                    text-decoration: none;
+                }
+                a:hover {
+                    color: #F28123;
+                }
+                &__icons {
+                    display: inline-block ;
+                }
+            }
+            li:last-child {
+                float: right;
+            }
+        }
+    }
+}
