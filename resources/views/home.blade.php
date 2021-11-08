@@ -7,16 +7,16 @@
 @section('content')
     <div class="header">
         <div class="container">
-            <div class="header__text">
-                <div class="text">
+            <div class="header__title">
+                <div class="header__title__text">
                     <p>NUTRITION & QUALITY</p>
                     <h1>Discover the flavors of wow food</h1>
                     <div class="row">
-                        <div class="her-btn col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                            <a href="" class="btn-lst">Fruit Collection</a>
+                        <div class="header__title__text__btn col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <a href="" class="header__title__text__btn__lst">Fruit Collection</a>
                         </div>
-                        <div class="her-btn col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                            <a href="" class="btn-contact-us">Contact Us</a>
+                        <div class="header__title__text__btn col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <a href="" class="header__title__text__btn__contact__us">Contact Us</a>
                         </div>
                     </div>
                 </div>
@@ -71,46 +71,46 @@
             </div>
             <div class="row">
                 <div class="col-lg-4 col-md-4 sol-sm-12 col-xs-12 text-center">
-                    <div class="single__product__item">
-                        <div class="product__image">
+                    <div class="product__section__single__item">
+                        <div class="product__section__single__item__image">
                             <a href="">
                                 <img src="https://technext.github.io/frutika/assets/img/products/product-img-1.jpg" alt="">
                             </a>
                         </div>
                         <h3>Strawberry</h3>
-                        <p class="product__price"><span>Per kg</span> 85$</p>
-                        <a href="" class="cart-btn"><i class="fas fa-shopping-cart"> Add To Cart</i></a>
+                        <p class="product__section__single__item__price"><span>Per kg</span> 85$</p>
+                        <a href="" class="product__section__single__item__cart__btn"><i class="fas fa-shopping-cart"> Add To Cart</i></a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 sol-sm-12 col-xs-12 text-center">
-                    <div class="single__product__item">
-                        <div class="product__image">
+                    <div class="product__section__single__item">
+                        <div class="product__section__single__item__image">
                             <a href="">
                                 <img src="https://technext.github.io/frutika/assets/img/products/product-img-2.jpg" alt="">
                             </a>
                         </div>
                         <h3>Strawberry</h3>
-                        <p class="product__price"><span>Per kg</span> 85$</p>
-                        <a href="" class="cart-btn"><i class="fas fa-shopping-cart"> Add To Cart</i></a>
+                        <p class="product__section__single__item__price"><span>Per kg</span> 85$</p>
+                        <a href="" class="product__section__single__item__cart__btn"><i class="fas fa-shopping-cart"> Add To Cart</i></a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 sol-sm-12 col-xs-12 text-center">
-                    <div class="single__product__item">
-                        <div class="product__image">
+                    <div class="product__section__single__item">
+                        <div class="product__section__single__item__image">
                             <a href="">
                                 <img src="https://technext.github.io/frutika/assets/img/products/product-img-3.jpg" alt="">
                             </a>
                         </div>
                         <h3>Strawberry</h3>
-                        <p class="product__price"><span>Per kg</span> 85$</p>
-                        <a href="" class="cart-btn"><i class="fas fa-shopping-cart"> Add To Cart</i></a>
+                        <p class="product__section__single__item__price"><span>Per kg</span> 85$</p>
+                        <a href="" class="product__section__single__item__cart__btn"><i class="fas fa-shopping-cart"> Add To Cart</i></a>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-12 col-sm-12">
                     <div class="product__section__btn text-center">
-                        <a href="" class="lst-btn">List Product</a>
+                        <a href="" class="product__section__btn__lst">List Product</a>
                     </div>
                 </div>
             </div>
@@ -124,7 +124,7 @@
                 <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
                     <div class="cart__banner__img">
                         <img src="https://technext.github.io/frutika/assets/img/a.jpg" alt="">
-                        <a href="" class="cart__sale">SALE<span><br>30%</span></a>
+                        <a href="" class="cart__banner__img__cart__sale">SALE<span><br>30%</span></a>
                     </div>
 
                 </div>
@@ -139,14 +139,16 @@
             </div>
         </div>
     </div>
-    <div class="feedback-section">
+    {{-- end banner section --}}
+    {{--  start feedback section  --}}
+    <div class="feedback__section">
         <div class="container">
             <div id="carousel-slider">
                 <div class="text-center">
                     <img src="https://technext.github.io/frutika/assets/img/avaters/avatar3.png" alt="">
                     <h3>Jacob Sikim </h3>
                     <h5>Local shop owner</h5>
-                    <div class="feedback__text">
+                    <div class="feedback__section__text">
                         <p>" Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae, totam voluptas non qui, earum deserunt beatae nemo delectus eveniet libero aut illum ratione amet ex incidunt eum sunt aliquid rem!"</p>
                     </div>
                     <i class="fas fa-quote-right"></i>
@@ -155,7 +157,7 @@
                     <img src="https://technext.github.io/frutika/assets/img/avaters/avatar1.png" alt="">
                     <h3>Jacob Sikim </h3>
                     <h5>Local shop owner</h5>
-                    <div class="feedback__text">
+                    <div class="feedback__section__text">
                         <p>" Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae, totam voluptas non qui, earum deserunt beatae nemo delectus eveniet libero aut illum ratione amet ex incidunt eum sunt aliquid rem!"</p>
                     </div>
                     <i class="fas fa-quote-right"></i>
@@ -164,7 +166,7 @@
                     <img src="https://technext.github.io/frutika/assets/img/avaters/avatar2.png" alt="">
                     <h3>Jacob Sikim </h3>
                     <h5>Local shop owner</h5>
-                    <div class="feedback__text">
+                    <div class="feedback__section__text">
                         <p>" Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae, totam voluptas non qui, earum deserunt beatae nemo delectus eveniet libero aut illum ratione amet ex incidunt eum sunt aliquid rem!"</p>
                     </div>
                     <i class="fas fa-quote-right"></i>
@@ -172,22 +174,21 @@
             </div>
         </div>
     </div>
+    {{--  end feedback section  --}}
 @endsection
 @push('script')
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <!-- Calling jQuery -->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <!-- Calling Slick Library -->
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-@endpush
-@push('js')
     <script>
-        var toggle = document.querySelector('.icon-toggle'),
-            sidebar = document.querySelector('.main-menu');
+        var toggle = document.querySelector('.menu__top__icon__toggle'),
+            sidebar = document.querySelector('.menu__top__main__menu');
 
         toggle.addEventListener('click', function(e) {
-            sidebar.classList.toggle('main-menu-show');
+            sidebar.classList.toggle('menu__top__main__menu__show');
         });
 
         $("#carousel-slider").slick({
@@ -200,4 +201,7 @@
             mobileFirst: true
         });
     </script>
+@endpush
+@push('js')
+
 @endpush
