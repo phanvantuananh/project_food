@@ -184,13 +184,6 @@
     <!-- Calling Slick Library -->
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script>
-        var toggle = document.querySelector('.menu__top__icon__toggle'),
-            sidebar = document.querySelector('.menu__top__main__menu');
-
-        toggle.addEventListener('click', function(e) {
-            sidebar.classList.toggle('menu__top__main__menu__show');
-        });
-
         $("#carousel-slider").slick({
             arrows: false,
             infinite: true,

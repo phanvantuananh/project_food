@@ -1,0 +1,55 @@
+@media screen and (max-width: 660px) {
+    // media menu top
+    .menu__top {
+        margin-top: 15px;
+        position: absolute;
+        top: 0;
+        left: 5%;
+        right: 5%;
+        &__logo {
+            float: left;
+            font-size: 30px;
+        }
+        &__icon__toggle {
+            display: block;
+            font-size: 25px;
+            float: right;
+            color: #fff;
+            padding: 0px 10px;
+            border: 1px solid #fff;
+        }
+        &__main__menu {
+            display: none;
+            list-style: none;
+            font-size: 15px;
+            margin-top: 60px;
+            background-color: #142630;
+            opacity: 0.9;
+            padding-bottom: 10px;
+            ul {
+                padding: 0;
+                list-style-type: none;
+                li {
+                    display: flex;
+                    justify-content: center;
+                    &__icons {
+                        display: none;
+                    }
+                }
+            }
+            &__icons{
+                display: none;
+            }
+        }
+        &__main__menu__show {
+            display: block;
+        }
+    }
+    /* media footer */
+    .footer {
+        padding: 80px 0px;
+    }
+}
+
+
+

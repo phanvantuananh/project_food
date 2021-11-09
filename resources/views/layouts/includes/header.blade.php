@@ -16,7 +16,7 @@
                         <li><a href="shop">Shop</a></li>
                         <li>
                             <div class="menu__top__main__menu__icons">
-                                <a href=""><i class="fa fa-user-plus" aria-hidden="true"></i></a>
+                                <a href="login"><i class="fa fa-user-plus" aria-hidden="true"></i></a>
                                 <a class="menu__top__main__menu__icons__shopping__cart" href=""><i class="fas fa-shopping-cart"></i></a>
                                 <a class="menu__top__main__menu__icons__heart" href=""><i class="fa fa-heart" aria-hidden="true"></i></a>
                             </div>

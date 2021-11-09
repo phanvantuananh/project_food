@@ -1,0 +1,47 @@
+@media screen and (max-width: 660px) {
+    // media heder
+    .header {
+        min-height: 80vh;
+        &__title {
+            top: 40%;
+            left: 5%;
+            right: 5%;
+            font-size: 15px;
+            &__text {
+                p {
+                    letter-spacing: 3px;
+                    font-weight: 700;
+                }
+                h1 {
+                    color: #fff;
+                    font-weight: 700;
+                    font-size: 30px;
+                }
+                &__btn {
+                    &__lst {
+                        width: 100%;
+                    }
+                    &__contact__us {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+    // media section login
+    .login__section {
+        &__form {
+            margin-left: 0px;
+            padding-top: 0px;
+        }
+        &__contact {
+            padding-top: 50px;
+            &__info {
+                margin-left: 0px;
+            }
+
+        }
+    }
+}
+
+
