@@ -28,14 +28,30 @@
                             <div class="mb-4">
                                 <input type="password" class="form-control" id="" placeholder="Enter password...">
                             </div>
-                            <div class="mb-3 form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                            <div class="mb-4 login__section__form__with">
+                                <div class="row">
+                                    <div class="col-md-6 mb-2">
+                                        <a href="{{ route('auth/google') }}" class="btn btn-outline-danger login__section__form__with__gg">Login with google</a>
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <a href="" class="btn btn-outline-primary login__section__form__with__fb">Login with facebook</a>
+                                    </div>
+                                </div>
                             </div>
                             <div class="login__section__form__text mb-3">
-                                <a href="register" class="login__section__form__text__register">Register</a>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <a href="register" class="login__section__form__text__register">Create new account</a>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-check">
+                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <button type="submit" class="login__section__form__btn">Submit</button>
+                            <button type="submit" class="btn btn-outline-success login__section__form__btn-login">Login</button>
                         </form>
                     </div>
                 </div>
