@@ -41,7 +41,8 @@ class CustomAuthController extends Controller
             'age' => $registerRequest['age'],
             'address' => $registerRequest['address'],
             'phone' => $registerRequest['phone'],
-            'image' => $registerRequest['image']
+            'image' => $registerRequest['image'],
+            'role' => $registerRequest['role'],
         ]);
         return redirect('login');
     }
