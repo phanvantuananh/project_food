@@ -19,6 +19,7 @@ class SocialiteAuthController extends Controller
 
     public function loginWithGoogle()
     {
+        $role = 2;
         $googleUser = Socialite::driver('google')->user();
         $user = User::where('google_id', $googleUser->id)->first();
         if ($user) {
@@ -30,6 +31,7 @@ class SocialiteAuthController extends Controller
                 'google_id' => $googleUser->id,
                 'password' => Hash::make('123123123'),
                 'image' => $googleUser->avatar,
+                'role' => $role,
             ]);
             Auth::login($createUser);
         }

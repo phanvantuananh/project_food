@@ -65,6 +65,7 @@
                                 <p class="error">{{$message}}</p>
                                 @enderror
                             </div>
+                            <input type="hidden" class="form-control" id="" name="role" value="2">
                             <button type="submit" class="btn btn-outline-success login__section__form__btn-login">Submit</button>
                         </form>
                     </div>
