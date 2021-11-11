@@ -28,6 +28,7 @@ class User extends Authenticatable
         'image',
         'gender',
         'google_id',
+        'facebook_id',
     ];
 
     /**

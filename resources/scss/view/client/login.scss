@@ -83,6 +83,12 @@
             padding-left: 18px;
             font-size: 15px;
         }
+        .error {
+            color: red;
+            font-style: italic;
+            font-size: 15px;
+            margin-left: 15px;
+        }
         &__with {
             &__gg, &__fb {
                 width: 100%;
