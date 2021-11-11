@@ -18,49 +18,54 @@
             <div class="row">
                 <div class="col-md-7">
                     <div class="login__section__form">
-                        <form>
+                        <form action="{{ route('register.custom') }}" method="POST">
+                            @csrf
                             <div class="mb-4">
                                 <label for="" class="login__section__form__title">Register</label>
                             </div>
                             <div class="mb-4">
-                                <input type="text" class="form-control" id="" class="full_name" placeholder="Enter full name..." >
+                                <input type="text" class="form-control" id="" name="name" placeholder="Enter full name..." >
+                                @error('name')
+                                <p class="error">{{$message}}</p>
+                                @enderror
                             </div>
                             <div class="mb-4">
-                                <input type="number" class="form-control" id="" class="age" placeholder="Enter age..." >
+                                <input type="number" class="form-control" id="" name="age" placeholder="Enter age..." >
+                                @error('age')
+                                <p class="error">{{$message}}</p>
+                                @enderror
                             </div>
                             <div class="mb-4">
-                                <input type="text" class="form-control" id="" class="address" placeholder="Enter address..." >
+                                <input type="text" class="form-control " id="" name="address" placeholder="Enter address..." >
+                                @error('address')
+                                <p class="error">{{$message}}</p>
+                                @enderror
                             </div>
                             <div class="mb-4">
-                                <input type="text" class="form-control" id="" class="email" placeholder="Enter email..." >
+                                <input type="text" class="form-control" id="" name="email" placeholder="Enter email..." >
+                                @error('email')
+                                <p class="error">{{$message}}</p>
+                                @enderror
                             </div>
                             <div class="mb-4">
-                                <input type="text" class="form-control" id="" class="phone" placeholder="Enter phone..." >
+                                <input type="text" class="form-control" id="" name="phone" placeholder="Enter phone..." >
+                                @error('phone')
+                                <p class="error">{{$message}}</p>
+                                @enderror
                             </div>
                             <div class="mb-4">
-                                <input type="password" class="form-control" id="" class="password" placeholder="Enter password...">
+                                <input type="password" class="form-control" id="" name="password" placeholder="Enter password...">
+                                @error('password')
+                                <p class="error">{{$message}}</p>
+                                @enderror
                             </div>
                             <div class="mb-4">
-                                <input type="file" class="form-control" id="" class="image" placeholder="Enter image...">
+                                <input type="file" class="form-control" id="" name="image" placeholder="Enter image...">
+                                @error('image')
+                                <p class="error">{{$message}}</p>
+                                @enderror
                             </div>
-                            <div class="mb-3 login__section__form__rdo__gender">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                    <label class="form-check-label" for="flexRadioDefault1">Male</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                                    <label class="form-check-label" for="flexRadioDefault2">Female</label>
-                                </div>
-                            </div>
-                            <div class="mb-3 form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                            </div>
-                            <div class="login__section__form__text mb-3">
-                                <a href="login" class="login__section__form__text__register">Exit</a>
-                            </div>
-                            <button type="submit" class="login__section__form__btn">Submit</button>
+                            <button type="submit" class="btn btn-outline-success login__section__form__btn-login">Submit</button>
                         </form>
                     </div>
                 </div>

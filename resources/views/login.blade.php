@@ -18,15 +18,22 @@
             <div class="row">
                 <div class="col-md-7">
                     <div class="login__section__form">
-                        <form>
+                        <form method="POST" action="{{route('login.custom')}}">
+                            @csrf
                             <div class="mb-4">
-                                <label for="" class="login__section__form__title">Login</label>
+                                <label for="" class="login__section__form__title text-center">Login</label>
                             </div>
                             <div class="mb-4">
-                                <input type="text" class="form-control" id="" placeholder="Enter email..." >
+                                <input type="text" class="form-control" id="" placeholder="Enter email..." name="email">
+                                @error('email')
+                                <p class="error">{{$message}}</p>
+                                @enderror
                             </div>
                             <div class="mb-4">
-                                <input type="password" class="form-control" id="" placeholder="Enter password...">
+                                <input type="password" class="form-control" id="" placeholder="Enter password..." name="password">
+                                @error('password')
+                                <p class="error">{{$message}}</p>
+                                @enderror
                             </div>
                             <div class="mb-4 login__section__form__with">
                                 <div class="row">
@@ -40,13 +47,13 @@
                             </div>
                             <div class="login__section__form__text mb-3">
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <a href="register" class="login__section__form__text__register">Create new account</a>
+                                    <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6">
+                                        <a href="{{ route('register') }}" class="login__section__form__text__register">Create new account</a>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6">
                                         <div class="form-check">
-                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                            <input type="checkbox" name="remember" class="form-check-input" id="exampleCheck1">
+                                            <label class="form-check-label" for="exampleCheck1">Remember</label>
                                         </div>
                                     </div>
                                 </div>
