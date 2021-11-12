@@ -16,15 +16,23 @@ class CustomAuthController extends Controller
         return view('login');
     }
 
-    public function customLogin(RegisterRequest $registerRequest)
+    public function customLogin(Request $request)
     {
-        $remember = $registerRequest['remember'];
-        $email = $registerRequest['email'];
-        $password = $registerRequest['password'];
-        if (Auth::attempt(['email' => $email, 'password' => $password], $remember)) {
-             return redirect('home');
+        $credentials = $request->only('email', 'password');
+        $validate = validator()->make($credentials, [
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+
+        if (!$validate->validated()) {
+            return redirect()->back()->withErrors($validate->errors()->first());
         }
-        return redirect('login');
+
+        if (auth()->attempt($credentials, $request->input('remember'))) {
+            return redirect('home');
+        }
+
+        return redirect()->route('login');
     }
 
     public function register()

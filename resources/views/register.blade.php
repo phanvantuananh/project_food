@@ -18,7 +18,7 @@
             <div class="row">
                 <div class="col-md-7">
                     <div class="login__section__form">
-                        <form action="{{ route('register.custom') }}" method="POST">
+                        <form action="" method="POST">
                             @csrf
                             <div class="mb-4">
                                 <label for="" class="login__section__form__title">Register</label>
