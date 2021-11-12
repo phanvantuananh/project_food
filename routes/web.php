@@ -33,6 +33,9 @@ Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout')
 Route::get('google', [SocialiteAuthController::class, 'googleRedirect'])->name('auth/google');
 Route::get('/auth/google/callback', [SocialiteAuthController::class, 'loginWithGoogle']);
 
+Route::get('facebook', [SocialiteAuthController::class, 'facebookRedirect'])->name('auth/facebook');
+Route::get('auth/facebook/callback', [SocialiteAuthController::class, 'loginWithFacebook']);
+
 ###################
 # AUTH
 ###################
