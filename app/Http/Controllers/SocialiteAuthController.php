@@ -37,4 +37,31 @@ class SocialiteAuthController extends Controller
         }
         return redirect('/home');
     }
+
+    public function facebookRedirect()
+    {
+        return Socialite::driver('facebook')->redirect();
+    }
+
+    public function loginWithFacebook()
+    {
+        $role = 2;
+        $facebookUser = Socialite::driver('facebook')->user();
+        $isUser = User::where('facebook_id', $facebookUser->id)->first();
+
+        if ($isUser) {
+            Auth::login($isUser);
+        } else {
+            $createUser = User::create([
+                'name' => $facebookUser->name,
+                'email' => $facebookUser->email,
+                'facebook_id' => $facebookUser->id,
+                'password' => Hash::make('123123123'),
+                'image' => $facebookUser->avatar,
+                'role' => $role,
+            ]);
+            Auth::login($createUser);
+        }
+        return redirect('/home');
+    }
 }

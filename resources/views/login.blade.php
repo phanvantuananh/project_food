@@ -30,7 +30,7 @@
                                 @enderror
                             </div>
                             <div class="mb-4">
-                                <input type="password" class="form-control" id="" placeholder="Enter password..." name="password">
+                                <input type="password" class="form-control" id="password" placeholder="Enter password..." name="password">
                                 @error('password')
                                 <p class="error">{{$message}}</p>
                                 @enderror
@@ -41,7 +41,7 @@
                                         <a href="{{ route('auth/google') }}" class="btn btn-outline-danger login__section__form__with__gg">Login with google</a>
                                     </div>
                                     <div class="col-md-6 mb-2">
-                                        <a href="" class="btn btn-outline-primary login__section__form__with__fb">Login with facebook</a>
+                                        <a href="{{route('auth/facebook')}}" class="btn btn-outline-primary login__section__form__with__fb">Login with facebook</a>
                                     </div>
                                 </div>
                             </div>
