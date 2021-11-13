@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('client.layouts.app')
 @push('css')
     <link rel="stylesheet" href="{{ mix('/css/login.css') }}">
 @endpush
@@ -8,7 +8,7 @@
             <div class="header__title">
                 <div class="header__title__text">
                     <p>NUTRITION & QUALITY</p>
-                    <h1>Register</h1>
+                    <h1>Login</h1>
                 </div>
             </div>
         </div>
@@ -18,55 +18,48 @@
             <div class="row">
                 <div class="col-md-7">
                     <div class="login__section__form">
-                        <form action="" method="POST">
+                        <form method="POST" action="">
                             @csrf
                             <div class="mb-4">
-                                <label for="" class="login__section__form__title">Register</label>
+                                <label for="" class="login__section__form__title text-center">Login</label>
                             </div>
                             <div class="mb-4">
-                                <input type="text" class="form-control" id="" name="name" placeholder="Enter full name..." >
-                                @error('name')
-                                <p class="error">{{$message}}</p>
-                                @enderror
-                            </div>
-                            <div class="mb-4">
-                                <input type="number" class="form-control" id="" name="age" placeholder="Enter age..." >
-                                @error('age')
-                                <p class="error">{{$message}}</p>
-                                @enderror
-                            </div>
-                            <div class="mb-4">
-                                <input type="text" class="form-control " id="" name="address" placeholder="Enter address..." >
-                                @error('address')
-                                <p class="error">{{$message}}</p>
-                                @enderror
-                            </div>
-                            <div class="mb-4">
-                                <input type="text" class="form-control" id="" name="email" placeholder="Enter email..." >
+                                <input type="text" class="form-control" id="" placeholder="Enter email..." name="email">
                                 @error('email')
                                 <p class="error">{{$message}}</p>
                                 @enderror
                             </div>
                             <div class="mb-4">
-                                <input type="text" class="form-control" id="" name="phone" placeholder="Enter phone..." >
-                                @error('phone')
-                                <p class="error">{{$message}}</p>
-                                @enderror
-                            </div>
-                            <div class="mb-4">
-                                <input type="password" class="form-control" id="" name="password" placeholder="Enter password...">
+                                <input type="password" class="form-control" id="password" placeholder="Enter password..." name="password">
                                 @error('password')
                                 <p class="error">{{$message}}</p>
                                 @enderror
                             </div>
-                            <div class="mb-4">
-                                <input type="file" class="form-control" id="" name="image" placeholder="Enter image...">
-                                @error('image')
-                                <p class="error">{{$message}}</p>
-                                @enderror
+                            <div class="mb-4 login__section__form__with">
+                                <div class="row">
+                                    <div class="col-md-6 mb-2">
+                                        <a href="{{ route('auth/google') }}" class="btn btn-outline-danger login__section__form__with__gg">Login with google</a>
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <a href="{{route('auth/facebook')}}" class="btn btn-outline-primary login__section__form__with__fb">Login with facebook</a>
+                                    </div>
+                                </div>
                             </div>
-                            <input type="hidden" class="form-control" id="" name="role" value="2">
-                            <button type="submit" class="btn btn-outline-success login__section__form__btn-login">Submit</button>
+                            <div class="login__section__form__text mb-3">
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6">
+                                        <a href="{{ route('register') }}" class="login__section__form__text__register">Create new account</a>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6">
+                                        <div class="form-check">
+                                            <input type="checkbox" name="remember" class="form-check-input" id="exampleCheck1">
+                                            <label class="form-check-label" for="exampleCheck1">Remember</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-outline-success login__section__form__btn-login">Login</button>
                         </form>
                     </div>
                 </div>

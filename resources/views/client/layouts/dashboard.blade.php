@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-@include('layouts.includes.head')
+@include('client.layouts.includes.head')
 <body>
-@include('layouts.includes.header')
+@include('client.layouts.includes.header')
 <div class="container">
     <main class="main">
         @yield('content')
     </main>
 </div>
 @stack('modal')
-@include('layouts.includes.footer')
-@include('layouts.includes.script')
+@include('client.layouts.includes.footer')
+@include('client.layouts.includes.script')
 </body>
 </html>

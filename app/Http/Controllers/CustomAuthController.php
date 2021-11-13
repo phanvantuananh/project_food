@@ -13,7 +13,7 @@ class CustomAuthController extends Controller
     //
     public function index()
     {
-        return view('login');
+        return view('client.login');
     }
 
     public function customLogin(Request $request)
@@ -37,7 +37,7 @@ class CustomAuthController extends Controller
 
     public function register()
     {
-        return view('register');
+        return view('client.register');
     }
 
     public function customRegister(RegisterRequest $registerRequest)
@@ -58,6 +58,6 @@ class CustomAuthController extends Controller
     public function signOut()
     {
         Auth::logout();
-        return redirect('home');
+        return redirect('login');
     }
 }

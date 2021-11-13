@@ -3,14 +3,14 @@
         <div class="row">
             <div class="col-lg-12 col-sm-12 text-center">
                 <div class="menu__top__logo">
-                    <a class="logo" href="" >Wow Food</a>
+                    <a class="logo" href="{{route('home')}}" >Wow Food</a>
                 </div>
                 <div class="menu__top__icon__toggle">
                     <i class="fa fa-bars" aria-hidden="true"></i>
                 </div>
                 <nav class="menu__top__main__menu">
                     <ul>
-                        <li><a href="#" style="color: #F28123;">Home</a></li>
+                        <li><a href="{{route('home')}}" style="color: #F28123;">Home</a></li>
                         <li><a href="">News</a></li>
                         <li><a href="">Contact</a></li>
                         <li><a href="shop">Shop</a></li>
