@@ -19,13 +19,9 @@
     <title>Wow Food</title>
     {{--  link font awesome  --}}
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-
-    <!-- Normalize CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-
     <!-- CSS head -->
     <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
-    <link rel="stylesheet" href="{{ mix('/css/style.css') }}">
+    <link rel="stylesheet" href="{{ mix('/css/admin/style.css') }}">
     @stack('css')
     @stack('style')
 

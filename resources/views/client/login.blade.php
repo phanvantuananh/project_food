@@ -1,6 +1,6 @@
 @extends('client.layouts.app')
 @push('css')
-    <link rel="stylesheet" href="{{ mix('/css/login.css') }}">
+    <link rel="stylesheet" href="{{ mix('/css/client/login.css') }}">
 @endpush
 @section('content')
     <div class="header">
