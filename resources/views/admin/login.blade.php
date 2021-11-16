@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('admin.layouts.dashboard')
 @push('css')
     <link rel="stylesheet" href="{{ mix('/css/admin/login.css') }}">
 @endpush

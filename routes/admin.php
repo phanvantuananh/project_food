@@ -1,19 +1,21 @@
 <?php
 
-use App\Http\Controllers\admin\LoginController;
-use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\Admin\LoginController;
+use App\Http\Controllers\Admin\AdminController;
 use Illuminate\Support\Facades\Route;
 
-//
-//Route::get('admin', function () {
-//    return view('admin/index');
-//})->name('admin');
-
-Route::get('admin', [LoginController::class, 'index'])->name('admin');
+Route::get('admin', [LoginController::class, 'formLogin'])->name('admin-login');
 Route::post('admin', [LoginController::class, 'Login']);
 Route::get('admin/logout', [loginController::class, 'logout'])->name('adminLogout');
 
-Route::group(['prefix' => 'admin', 'middleware' => ['check.role.login', 'admin.auth']], function () {
-    // Admin Dashboard
-    Route::get('dashboard', [AdminController::class, 'index'])->name('dashboard');
+Route::group(['prefix' => '/', 'middleware' => 'check.role.login'], function () {
+    Route::get('admin/index', [LoginController::class, 'index'])->name('index');
+    Route::get('admin/index/', function () {
+        return view('admin.index');
+    });
+    Route::resource('admin/user', \Admin\ManagerUserController::class);
 });
+
+Route::get('product', function () {
+    return view('admin/product');
+})->name('product');

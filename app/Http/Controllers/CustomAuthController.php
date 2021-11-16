@@ -27,7 +27,6 @@ class CustomAuthController extends Controller
         if (!$validate->validated()) {
             return redirect()->back()->withErrors($validate->errors()->first());
         }
-
         if (auth()->attempt($credentials, $request->input('remember'))) {
             return redirect('home');
         }

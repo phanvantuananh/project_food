@@ -11,10 +11,11 @@ use Illuminate\Support\Facades\Session;
 class LoginController extends Controller
 {
 
-    public function index()
+    public function formLogin()
     {
         return view('admin.login');
     }
+
     public function Login(Request $request)
     {
         $credentials = $request->only('email', 'password');
@@ -27,11 +28,22 @@ class LoginController extends Controller
             return redirect()->back()->withErrors($validate->errors()->first());
         }
 
-        if (auth()->guard('admin')->attempt($credentials)) {
+        if (auth()->attempt($credentials)) {
 //            $user = auth()->guard('admin')->user();
 //            Session::put('success', 'You are Login successfully!!');
-            return redirect()->route('dashboard');
+            return view('admin.index');
         }
-        return redirect()->route('admin');
+        return redirect()->route('admin-login');
+    }
+
+    public function index()
+    {
+        return view('admin.index');
+    }
+
+    public function logout()
+    {
+        auth()->logout();
+        return redirect()->route('admin-login');
     }
 }
