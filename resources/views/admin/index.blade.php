@@ -1,39 +1,35 @@
 @extends('admin.layouts.app')
 
 @section('content-table')
-    <div class="btn-option mb-3">
-        <a href="resources/views/admin/user/create" class="btn btn-sm btn-primary">Create index</a>
+<div class="row mt-5">
+    <div class="col-md-3">
+        <div class="bg-info text-white text-center">
+            <h1>hello</h1>
+            <p class="mt-4">Sequences of whitespace will collapse into a single whitespace. Text will wrap when necessary. This is default</p>
+        </div>
     </div>
-    <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width: 100%">
-        <thead>
-        <tr>
-            <th>Number</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Division</th>
-            <th>Position</th>
-            <th>Role</th>
-            <td>Option</td>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <th>Number</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Division</th>
-            <th>Position</th>
-            <th>Role</th>
-            <td>Option</td>
-        </tr>
-        </tbody>
-    </table>
+    <div class="col-md-3">
+        <div class="bg-danger text-white text-center">
+            <h1>hello</h1>
+            <p class="mt-4">Sequences of whitespace will collapse into a single whitespace. Text will wrap when necessary. This is default</p>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="bg-success text-white text-center">
+            <h1>hello</h1>
+            <p class="mt-4">Sequences of whitespace will collapse into a single whitespace. Text will wrap when necessary. This is default</p>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="bg-warning text-white text-center">
+            <h1>hello</h1>
+            <p class="mt-4">Sequences of whitespace will collapse into a single whitespace. Text will wrap when necessary. This is default</p>
+        </div>
+    </div>
+</div>
 @endsection
 @push('script')
-    <link rel="stylesheet" type="text/css"
-          href="https://cdn.datatables.net/v/bs4/jq-3.6.0/dt-1.11.3/af-2.3.7/b-2.0.1/date-1.1.1/r-2.2.9/sb-1.3.0/sp-1.4.0/datatables.min.css"/>
-    <script type="text/javascript"
-            src="https://cdn.datatables.net/v/bs4/jq-3.6.0/dt-1.11.3/af-2.3.7/b-2.0.1/date-1.1.1/r-2.2.9/sb-1.3.0/sp-1.4.0/datatables.min.js"></script>
+
 @endpush
 @push('js')
 

@@ -46,12 +46,12 @@
                     <td>{{$user->phone}}</td>
                     <td>
                         <form action="{{route('user.destroy', $user->id)}}" method="POST">
-                            <a href="{{route('user.edit', $user->id)}}" class="btn btn-success"><i class="fas fa-edit"></i></a>
-                            <a href="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal{{$user->id}}"><i class="fas fa-eye"></i></a>
+                            <a href="{{route('user.edit', $user->id)}}" class="btn-sm btn btn-success"><i class="fas fa-edit"></i></a>
+                            <a href="" class="btn-sm btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal{{$user->id}}"><i class="fas fa-eye"></i></a>
 
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger" ><i class="fas fa-trash-alt"></i></button>
+                            <button type="submit" class="btn-sm btn btn-danger" ><i class="fas fa-trash-alt"></i></button>
 
                         </form>
                     </td>

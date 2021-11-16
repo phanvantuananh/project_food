@@ -14,6 +14,7 @@ Route::group(['prefix' => '/', 'middleware' => 'check.role.login'], function () 
         return view('admin.index');
     });
     Route::resource('admin/user', \Admin\ManagerUserController::class);
+    Route::resource('admin/category', \Admin\ManagerCategoryController::class);
 });
 
 Route::get('product', function () {

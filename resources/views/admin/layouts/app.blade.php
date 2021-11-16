@@ -8,7 +8,7 @@
             <div class="sidebar d-flex flex-column flex-shrink-0 p-3 text-white bg-dark">
                 <a href="/" class="sidebar__logo d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                     <i class="fas fa-utensils sidebar__logo__icon"></i>
-                    <span class="fs-4">Manager</span>
+                    <span class="fs-4">Manager WF</span>
                 </a>
                 <hr>
                 <ul class="nav nav-pills flex-column mb-auto sidebar__menu">
@@ -43,7 +43,7 @@
                         </a>
                     </li>
                     <li class="nav-item sidebar__menu__li">
-                        <a href="" class="nav-link text-white">
+                        <a href="{{route('category.index')}}" class="nav-link text-white">
                             <i class="fas fa-book"></i>
                             <span class="m-lg-2">Categories</span>
                         </a>
