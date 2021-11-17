@@ -31,7 +31,7 @@
                         </a>
                     </li>
                     <li class="nav-item sidebar__menu__li">
-                        <a href="{{route('product')}}" class="nav-link text-white">
+                        <a href="{{route('product.index')}}" class="nav-link text-white">
                             <i class="fas fa-table"></i>
                             <span class="m-lg-2">Products</span>
                         </a>

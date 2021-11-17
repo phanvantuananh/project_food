@@ -23,11 +23,9 @@ class LoginController extends Controller
             'email' => 'required|email',
             'password' => 'required',
         ]);
-
         if (!$validate->validated()) {
             return redirect()->back()->withErrors($validate->errors()->first());
         }
-
         if (auth()->attempt($credentials)) {
 //            $user = auth()->guard('admin')->user();
 //            Session::put('success', 'You are Login successfully!!');

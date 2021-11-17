@@ -11,11 +11,18 @@
                 font-size: 30px;
             }
         }
-        &__menu{
+        &__menu {
             &__li:hover {
                 background-color: #6f42c1;
                 border-radius: 20px;
             }
         }
+    }
+}
+.form-add-new {
+    .mess-err {
+        color: red;
+        font-style: italic;
+        padding-left: 5px;
     }
 }
