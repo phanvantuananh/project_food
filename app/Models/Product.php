@@ -28,4 +28,8 @@ class Product extends Model
     {
         return $this->hasMany(OrderItem::class);
     }
+    public function rating()
+    {
+        return $this->hasMany(Rating::class);
+    }
 }

@@ -55,7 +55,7 @@
                         </a>
                     </li>
                     <li class="nav-item sidebar__menu__li">
-                        <a href="" class="nav-link text-white">
+                        <a href="{{route('rating.index')}}" class="nav-link text-white">
                             <i class="fas fa-star-half-alt"></i>
                             <span class="m-lg-2">Rating</span>
                         </a>
