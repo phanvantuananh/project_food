@@ -25,7 +25,7 @@
                         </a>
                     </li>
                     <li class="nav-item sidebar__menu__li">
-                        <a href="#" class="nav-link text-white">
+                        <a href="{{route('order.index')}}" class="nav-link text-white">
                             <i class="fas fa-shopping-cart"></i>
                             <span class="m-lg-2">Orders</span>
                         </a>
