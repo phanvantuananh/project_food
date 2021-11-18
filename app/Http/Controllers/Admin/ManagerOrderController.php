@@ -38,7 +38,7 @@ class ManagerOrderController extends Controller
     public function store(ManagerOrderRequest $request)
     {
         Orders::create($request->all());
-        return redirect()->route('order.index');
+        return redirect()->route('order_item.create');
     }
 
     /**
