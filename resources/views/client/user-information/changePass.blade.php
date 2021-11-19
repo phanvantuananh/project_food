@@ -8,7 +8,7 @@
             <div class="header__title">
                 <div class="header__title__text">
                     <p>NUTRITION & QUALITY</p>
-                    <h1>Register</h1>
+                    <h1>Change Password</h1>
                 </div>
             </div>
         </div>
@@ -18,54 +18,29 @@
             <div class="row">
                 <div class="col-md-7">
                     <div class="login__section__form">
-                        <form action="" method="POST" enctype="multipart/form-data" >
+                        <form action="" method="POST">
                             @csrf
                             <div class="mb-4">
-                                <label for="" class="login__section__form__title">Register</label>
+                                <label for="" class="login__section__form__title">Change Password</label>
                             </div>
                             <div class="mb-4">
-                                <input type="text" class="form-control" id="" name="name" placeholder="Enter full name..." >
-                                @error('name')
-                                <p class="error">{{$message}}</p>
-                                @enderror
-                            </div>
-                            <div class="mb-4">
-                                <input type="number" class="form-control" id="" name="age" placeholder="Enter age..." >
-                                @error('age')
-                                <p class="error">{{$message}}</p>
-                                @enderror
-                            </div>
-                            <div class="mb-4">
-                                <input type="text" class="form-control " id="" name="address" placeholder="Enter address..." >
-                                @error('address')
-                                <p class="error">{{$message}}</p>
-                                @enderror
-                            </div>
-                            <div class="mb-4">
-                                <input type="text" class="form-control" id="" name="email" placeholder="Enter email..." >
-                                @error('email')
-                                <p class="error">{{$message}}</p>
-                                @enderror
-                            </div>
-                            <div class="mb-4">
-                                <input type="text" class="form-control" id="" name="phone" placeholder="Enter phone..." >
-                                @error('phone')
-                                <p class="error">{{$message}}</p>
-                                @enderror
-                            </div>
-                            <div class="mb-4">
-                                <input type="password" class="form-control" id="" name="password" placeholder="Enter password...">
+                                <input type="password" class="form-control" id="" name="password" placeholder="Enter password..." >
                                 @error('password')
                                 <p class="error">{{$message}}</p>
                                 @enderror
                             </div>
                             <div class="mb-4">
-                                <input type="file" class="form-control" id="image" name="image" placeholder="Enter image...">
-                                @error('image')
+                                <input type="password" class="form-control" id="" name="password-new" placeholder="Enter new password..." >
+                                @error('password-new')
                                 <p class="error">{{$message}}</p>
                                 @enderror
                             </div>
-                            <input type="hidden" class="form-control" id="" name="role" value="2">
+                            <div class="mb-4">
+                                <input type="password" class="form-control" id="" name="password-new-c" placeholder="Enter new password..." >
+                                @error('password-new-c')
+                                <p class="error">{{$message}}</p>
+                                @enderror
+                            </div>
                             <button type="submit" class="btn btn-outline-success login__section__form__btn-login">Submit</button>
                         </form>
                     </div>

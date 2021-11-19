@@ -18,12 +18,10 @@
                             <div class="menu__top__main__menu__icons">
                                 @guest()
                                     <a class="menu__top__main__menu__icons__shopping__cart" href=""><i class="fas fa-shopping-cart"></i></a>
-                                    <a class="menu__top__main__menu__icons__heart" href=""><i class="fa fa-heart" aria-hidden="true"></i></a>
                                     <a href="{{ route('login') }}"><i class="fa fa-user-plus" aria-hidden="true"></i></a>
                                 @else
                                     <a class="menu__top__main__menu__icons__shopping__cart" href=""><i class="fas fa-shopping-cart"></i></a>
-                                    <a class="menu__top__main__menu__icons__heart" href=""><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                    <a class="">{{ Auth::user()->name }}</a>
+                                    <a class="" href="{{route('user-information', [ Auth::id()])}}">{{ Auth::user()->name }}</a>
                                     <a class="nav-link" href="{{route('logout')}}">Logout</a>
                                 @endguest
                             </div>

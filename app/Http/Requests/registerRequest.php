@@ -25,12 +25,12 @@ class RegisterRequest extends FormRequest
     {
         $rules = [
             'name' => 'required',
-            'email' => 'required',
-            'password' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|min:8',
             'age' => 'required',
             'address' => 'required',
-            'phone' => 'required',
-            'image' => 'required'
+            'phone' => 'required|min:10',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
         return $rules;
     }
@@ -43,7 +43,6 @@ class RegisterRequest extends FormRequest
             'age.required' => 'Không được để trống',
             'address.required' => 'Không được để trống',
             'phone.required' => 'Không được để trống',
-            'image.required' => 'Không được để trống'
         ];
         return $messages;
     }

@@ -21,6 +21,7 @@ mix.js('resources/js/app.js', publicJsFolder)
     .sass('resources/scss/view/home.scss', publicCssClientFolder)
     .sass('resources/scss/view/client/style.scss', publicCssClientFolder)
     .sass('resources/scss/view/client/login.scss', publicCssClientFolder)
+    .sass('resources/scss/view/client/information.scss', publicCssClientFolder)
     .sass('resources/scss/view/admin/login.scss', publicCssAdminFolder)
     .sass('resources/scss/view/admin/style.scss', publicCssAdminFolder)
 
