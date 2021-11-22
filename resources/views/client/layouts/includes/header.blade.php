@@ -13,14 +13,14 @@
                         <li><a href="{{route('home')}}" style="color: #F28123;">Home</a></li>
                         <li><a href="">News</a></li>
                         <li><a href="">Contact</a></li>
-                        <li><a href="shop">Shop</a></li>
+                        <li><a href="{{route('shop')}}">Shop</a></li>
                         <li>
                             <div class="menu__top__main__menu__icons">
                                 @guest()
                                     <a class="menu__top__main__menu__icons__shopping__cart" href=""><i class="fas fa-shopping-cart"></i></a>
                                     <a href="{{ route('login') }}"><i class="fa fa-user-plus" aria-hidden="true"></i></a>
                                 @else
-                                    <a class="menu__top__main__menu__icons__shopping__cart" href=""><i class="fas fa-shopping-cart"></i></a>
+                                    <a class="menu__top__main__menu__icons__shopping__cart" href="{{route('cart')}}"><i class="fas fa-shopping-cart"></i></a>
                                     <a class="" href="{{route('user-information', [ Auth::id()])}}">{{ Auth::user()->name }}</a>
                                     <a class="nav-link" href="{{route('logout')}}">Logout</a>
                                 @endguest

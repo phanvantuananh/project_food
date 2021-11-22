@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CustomAuthController;
+use App\Http\Controllers\ShopController;
 use App\Http\Controllers\SocialiteAuthController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 # GUEST
 ###################
 Route::get('home', function () {
-    return view('client/home');
+    return view('client.home');
 })->name('home');
 Route::group(['prefix' => '/', 'middleware' => 'check.login'], function () {
     Route::get('login', [CustomAuthController::class, 'index'])->name('login');
@@ -31,11 +32,21 @@ Route::group(['prefix' => '/', 'middleware' => 'check.login'], function () {
     Route::get('/auth/google/callback', [SocialiteAuthController::class, 'loginWithGoogle']);
     Route::get('facebook', [SocialiteAuthController::class, 'facebookRedirect'])->name('auth/facebook');
     Route::get('auth/facebook/callback', [SocialiteAuthController::class, 'loginWithFacebook']);
-
-//        Route::get('information', UserInformationController::class);
 });
 Route::get('logout', [CustomAuthController::class, 'signOut'])->name('logout');
-Route::get('/information/{id}', [CustomAuthController::class, 'userViewInfo'])->name('user-information');
-Route::post('/information/{id}', [CustomAuthController::class, 'updateUserInformation']);
-Route::get('/change-password/{id}', [CustomAuthController::class, 'viewChangePassword'])->name('change-pass');
-Route::post('/change-password/{id}', [CustomAuthController::class, 'changePassword']);
+//information user
+Route::get('home/information/{id}', [CustomAuthController::class, 'userViewInfo'])->name('user-information');
+Route::post('home/information/{id}', [CustomAuthController::class, 'updateUserInformation']);
+Route::get('home/change-password/{id}', [CustomAuthController::class, 'viewChangePassword'])->name('change-pass');
+Route::post('home/change-password/{id}', [CustomAuthController::class, 'changePassword']);
+//list product
+Route::get('home/shop', [ShopController::class, 'index'])->name('shop');
+Route::get('home/shop/category', [ShopController::class, 'lstProduct'])->name('lst-product');
+//add to cart
+// required login
+Route::group(['prefix' => '/', 'middleware' => 'check.auth.login'], function () {
+    Route::get('home/shop/cart', [ShopController::class, 'cart'])->name('cart');
+    Route::get('home/shop/add-to-cart/{id}', [ShopController::class, 'addToCart'])->name('add-to-cart');
+    Route::patch('home/shop/update-cart', [ShopController::class, 'update'])->name('update.cart');
+    Route::delete('home/shop//remove', [ShopController::class, 'remove'])->name('remove.from.cart');
+});

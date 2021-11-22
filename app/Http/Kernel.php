@@ -4,6 +4,7 @@ namespace App\Http;
 
 use App\Http\Middleware\AdminAuthenticated;
 use App\Http\Middleware\AdminWhiteList;
+use App\Http\Middleware\CheckAuthLogin;
 use App\Http\Middleware\CheckRoleLogin;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -79,6 +80,7 @@ class Kernel extends HttpKernel
         'admin.white.list' => AdminWhiteList::class,
         'check.role.login' => CheckRoleLogin::class,
         'admin.auth' => AdminAuthenticated::class,
+        'check.auth.login' => CheckAuthLogin::class,
 
     ];
 }
