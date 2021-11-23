@@ -44,9 +44,13 @@ Route::get('home/shop', [ShopController::class, 'index'])->name('shop');
 Route::get('home/shop/category', [ShopController::class, 'lstProduct'])->name('lst-product');
 //add to cart
 // required login
-Route::group(['prefix' => '/', 'middleware' => 'check.auth.login'], function () {
-    Route::get('home/shop/cart', [ShopController::class, 'cart'])->name('cart');
-    Route::get('home/shop/add-to-cart/{id}', [ShopController::class, 'addToCart'])->name('add-to-cart');
-    Route::patch('home/shop/update-cart', [ShopController::class, 'update'])->name('update.cart');
-    Route::delete('home/shop//remove', [ShopController::class, 'remove'])->name('remove.from.cart');
+Route::group(['prefix' => '/home/shop', 'middleware' => 'check.auth.login'], function () {
+    Route::get('cart', [ShopController::class, 'cart'])->name('cart');
+    Route::get('add-to-cart/{id}', [ShopController::class, 'addToCart'])->name('add-to-cart');
+    Route::patch('update-cart', [ShopController::class, 'update'])->name('update.cart');
+    Route::delete('remove', [ShopController::class, 'remove'])->name('remove.from.cart');
+    Route::get('check-out', [ShopController::class, 'checkOut'])->name('check-out');
+    Route::post('check-out', [ShopController::class, 'AddNewOrder']);
 });
+// product detail
+Route::get('home/shop/product-detail/{id}', [ShopController::class, 'productDetail'])->name('product-detail');

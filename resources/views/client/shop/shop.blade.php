@@ -42,7 +42,7 @@
                             <div class="col-lg-4 col-md-4 sol-sm-12 col-xs-12 text-center">
                                 <div class="product__section__single__item">
                                     <div class="product__section__single__item__image">
-                                        <a href="">
+                                        <a href="{{route('product-detail', $product->id)}}">
                                             <img src="/image/{{ $product->product_image }}" alt="">
                                         </a>
                                     </div>

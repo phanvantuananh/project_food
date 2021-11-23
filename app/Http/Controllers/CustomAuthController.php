@@ -63,8 +63,8 @@ class CustomAuthController extends Controller
     public function userViewInfo(Request $request, $id)
     {
         $user = User::find($id);
-        $orders = Orders::where('user_id', $id)->get();
-        return view('client.user-information.information', compact('user', 'orders'));
+        $orders = Orders::where('user_id', $id)->orderby('id', 'Asc')->paginate(5);
+        return view('client.user-information.information', compact('user', 'orders'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     public function updateUserInformation(Request $request, $id)

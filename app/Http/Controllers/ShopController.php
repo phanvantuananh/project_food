@@ -3,8 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\OrderItem;
+use App\Models\Orders;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use MongoDB\Driver\Session;
 
 class ShopController extends Controller
 {
@@ -36,10 +41,12 @@ class ShopController extends Controller
             $cart[$id]['quantity']++;
         } else {
             $cart[$id] = [
+                'id' => $product->id,
                 'name' => $product->product_name,
                 'quantity' => 1,
                 'price' => $product->product_price,
-                'image' => $product->product_image
+                'image' => $product->product_image,
+                'category' => $product->category->name,
             ];
         }
         session()->put('cart', $cart);
@@ -66,5 +73,37 @@ class ShopController extends Controller
             }
             session()->flash('success', 'Product removed successfully');
         }
+    }
+
+    public function productDetail($id)
+    {
+        $products = Product::findOrFail($id);
+        return view('client.shop.productDetail', compact('products'));
+    }
+
+    public function checkOut()
+    {
+        $users = User::where('id', Auth::id())->get();
+        return view('client.shop.checkOut', compact('users'));
+    }
+
+    public function AddNewOrder(Request $request)
+    {
+        $subtotal = 0;
+        $order = Orders::create($request->all());
+        $cart = session('cart');
+        foreach ($cart as $rs) {
+            $subtotal += $rs['price'] * $rs['quantity'];
+            $quantity = $rs['quantity'];
+            $productId = $rs['id'];
+            OrderItem::create([
+                'order_id' => $order->id,
+                'product_id' => $productId,
+                'quantity' => $quantity,
+                'total' => $subtotal,
+            ]);
+        }
+        $request->session()->remove('cart');
+        return redirect()->route('home');
     }
 }

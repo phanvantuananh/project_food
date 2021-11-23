@@ -108,25 +108,25 @@
                                             <thead>
                                             <tr>
                                                 <th scope="col">#</th>
-                                                <th scope="col">User Code</th>
                                                 <th scope="col">Order User</th>
-                                                <th scope="col">Order Phone</th>
-                                                <th scope="col">Order Address</th>
-                                                <th scope="col">Order Email</th>
-                                                <th scope="col">Order Total</th>
+                                                <th scope="col">Receiver</th>
+                                                <th scope="col">Phone</th>
+                                                <th scope="col">Address</th>
+                                                <th scope="col">Email</th>
+                                                <th scope="col">Total</th>
                                                 <th scope="col">Status</th>
                                             </tr>
                                             </thead>
                                             <tbody>
                                             @foreach($orders as $order)
                                                 <tr>
-                                                    <th scope="row">{{$order->id}}</th>
+                                                    <th scope="row">{{++$i}}</th>
                                                     <td>{{$order->user->name}}</td>
                                                     <td>{{$order->order_user}}</td>
                                                     <td>{{$order->order_phone}}</td>
                                                     <td>{{$order->order_address}}</td>
                                                     <td>{{$order->order_email}}</td>
-                                                    <td>{{$order->order_total}}</td>
+                                                    <td>${{$order->order_total}}</td>
                                                     <td>
                                                         @if($order->order_status == 1)
                                                             <a href="" class="btn btn-sm btn-success"
@@ -142,6 +142,7 @@
                                             @endforeach
                                             </tbody>
                                         </table>
+                                        {!! $orders->links() !!}
                                     </div>
                                 </div>
                             </div>
