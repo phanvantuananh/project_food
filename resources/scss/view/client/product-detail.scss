@@ -37,5 +37,45 @@
             background-color: #F28123;
             color: #fff;
         }
+        .rating {
+            font-size: 20px;
+        }
+    }
+}
+.rating-section {
+    margin: 80px 0px;
+    background-color: #f5f5f5;
+    padding: 50px 30px;
+    &__text {
+        padding: 10px 10px;
+        margin-bottom: 30px;
+        border-bottom: 1px solid #bebebf;
+        &__avg-star {
+            color: #ffc107;
+        }
+    }
+    &__user-rating {
+        margin-top: 40px;
+        margin-left: 40px;
+        .image {
+            width: 60px;
+            border-radius: 50px;
+            }
+        &__text {
+            margin-left: 20px;
+            > p {
+                margin-bottom: 5px;
+            }
+        }
+    }
+}
+@media screen and (max-width: 660px) {
+    .cart__banner {
+        padding: 0px;
+        &__img {
+            width: 100%;
+            margin-left: 0px;
+            margin-bottom: 50px;
+        }
     }
 }

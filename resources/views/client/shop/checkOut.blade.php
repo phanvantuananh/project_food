@@ -36,8 +36,7 @@
                                 @php $total =  $subtotal + $shipping @endphp
                                 <li class="list-group-item d-flex justify-content-between lh-sm">
                                     <div>
-                                        <h6 class="my-0 mb-2">{{$details['name']}}<span
-                                                style="background-color: #F28123; padding: 5px 10px; color: #fff; border-radius: 30px"> {{$details['quantity']}}</span>
+                                        <h6 class="my-0 mb-2">{{$details['name']}} <span style="background-color: #F28123; padding: 5px 10px; color: #fff; border-radius: 30px">{{$details['quantity']}}</span>
                                         </h6>
                                         <small class="text-muted">{{$details['category']}}</small>
                                     </div>

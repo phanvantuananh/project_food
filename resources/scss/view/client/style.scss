@@ -40,6 +40,12 @@
                 &__icons {
                     display: inline-block ;
                 }
+                .li-login {
+                    display: none;
+                }
+                .li-cart {
+                    display: none;
+                }
             }
             li:last-child {
                 float: right;

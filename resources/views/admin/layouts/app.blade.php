@@ -2,6 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 @include('admin.layouts.includes.head')
 <body>
+<x:notify-messages />
 <div class="admin">
     <div class="row">
         <div class="col-md-2">
@@ -10,8 +11,8 @@
                     <i class="fas fa-utensils sidebar__logo__icon"></i>
                     <span class="fs-4">Manager WF</span>
                 </a>
-                <hr>
-                <ul class="nav nav-pills flex-column mb-auto sidebar__menu">
+                <hr class="mt-2">
+                <ul class="nav nav-pills flex-column mb-auto sidebar__menu mt-3">
                     <li class="nav-item sidebar__menu__li">
                         <a href="" class="nav-link text-white " aria-current="page">
                             <i class="fas fa-home"></i>
@@ -27,8 +28,8 @@
                     <li class="nav-item sidebar__menu__li">
                         <a href="{{route('order.index')}}" class="nav-link text-white">
                             <i class="fas fa-shopping-cart"></i>
-                            <span class="m-lg-2">Orders</span>
-                        </a>
+                                <span class="m-lg-2">Orders</span>
+                            </a>
                     </li>
                     <li class="nav-item sidebar__menu__li">
                         <a href="{{route('order_item.index')}}" class="nav-link text-white">
@@ -60,6 +61,12 @@
                             <span class="m-lg-2">Rating</span>
                         </a>
                     </li>
+                    <li class="nav-item sidebar__menu__li">
+                        <a href="{{route('contact_us.index')}}" class="nav-link text-white">
+                            <i class="fas fa-id-card"></i>
+                            <span class="m-lg-2">Contact Us</span>
+                        </a>
+                    </li>
                 </ul>
                 <hr>
                 <div class="dropdown">
@@ -67,15 +74,9 @@
                        id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="https://github.com/mdo.png" alt="" width="32" height="32"
                              class="rounded-circle me-2">
-                        <strong>{{ Auth::user()->name }}</strong>
+                        <strong>{{ Auth::guard('manager')->user()->name }}</strong>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                        <li><a class="dropdown-item" href="#">New project...</a></li>
-                        <li><a class="dropdown-item" href="#">Settings</a></li>
-                        <li><a class="dropdown-item" href="#">Profile</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
                         <li><a class="dropdown-item" href="{{route('adminLogout')}}">Sign out</a></li>
                     </ul>
                 </div>
@@ -88,6 +89,7 @@
         </div>
     </div>
 </div>
+@notifyJs
 @stack('modal')
 @push('script')
     <link rel="stylesheet" type="text/css"

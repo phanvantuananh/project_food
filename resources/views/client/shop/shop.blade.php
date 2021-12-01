@@ -23,7 +23,7 @@
                 <ul class="nav nav-pills mb-3 " id="pills-tab" role="tablist">
                     <li class="nav-item" role="presentation" style="margin-left: 10px; background-color: #F28123">
                         <a href="{{route('shop')}}" class="nav-link btn btn-primary " style="color: #fff; font-size: 18px">
-                            Home
+                            All
                         </a>
                     </li>
                     @foreach($categories as $category)
@@ -43,11 +43,11 @@
                                 <div class="product__section__single__item">
                                     <div class="product__section__single__item__image">
                                         <a href="{{route('product-detail', $product->id)}}">
-                                            <img src="/image/{{ $product->product_image }}" alt="">
+                                            <img src="{{asset( 'storage/' . $product->product_image)}}" alt="">
                                         </a>
                                     </div>
                                     <h3>{{$product->product_name}}</h3>
-                                    <p class="product__section__single__item__price">
+                                    <p class="product__section__single__item__price mb-3">
                                         <span>Per kg</span> {{$product->product_price}}$</p>
                                     <a href="{{route('add-to-cart', $product->id)}}" class="product__section__single__item__cart__btn"><i
                                             class="fas fa-shopping-cart"> Add To Cart</i></a>

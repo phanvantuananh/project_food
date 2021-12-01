@@ -70,8 +70,8 @@
                         <div class="modal-body">
                             <div class="row">
                                 <div class="col-md-4 text-center">
-                                    <img src="/image/{{ $product->product_image }}" width="200px"
-                                         style="border-radius: 200px" class="mb-3">
+                                    <img src="{{asset( 'storage/' . $product->product_image)}}" width="200px" style="border-radius: 200px;width: 300px;
+            height: 300px;" class="mb-3">
                                 </div>
                                 <div class="col-md-8 mb-auto ">
                                     <div class="modal-body__text mt-2" style="margin-left: 100px">

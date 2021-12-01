@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Auth\Authenticatable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
@@ -26,10 +24,8 @@ class LoginController extends Controller
         if (!$validate->validated()) {
             return redirect()->back()->withErrors($validate->errors()->first());
         }
-        if (auth()->attempt($credentials)) {
-//            $user = auth()->guard('admin')->user();
-//            Session::put('success', 'You are Login successfully!!');
-            return view('admin.index');
+        if (Auth::guard('manager')->attempt($credentials)) {
+            return redirect('admin/index');
         }
         return redirect()->route('admin-login');
     }

@@ -22,6 +22,7 @@
     <!-- CSS head -->
     <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
     <link rel="stylesheet" href="{{ mix('/css/admin/style.css') }}">
+    @notifyCss
     @stack('css')
     @stack('style')
 

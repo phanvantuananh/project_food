@@ -22,10 +22,12 @@
 
     <!-- Normalize CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-
+    <link rel="stylesheet" href="{{ asset('/css/client/notify.css') }}">
     <!-- CSS head -->
     <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
     <link rel="stylesheet" href="{{ mix('/css/client/style.css') }}">
+    @notifyCss
+{{--    notify css--}}
     @stack('css')
     @stack('style')
 

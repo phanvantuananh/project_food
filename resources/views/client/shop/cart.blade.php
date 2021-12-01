@@ -47,13 +47,12 @@
                                 <tr data-id="{{ $id }}">
                                     <td>{{++$i}}</td>
                                     <td data-th="image">
-                                        <img src="/image/{{$details['image'] }}" width="50" class=""/>
+                                        <img src="{{asset( 'storage/' . $details['image'])}}" width="50" class=""/>
                                     </td>
                                     <td data-th="name">{{$details['name']}}</td>
                                     <td data-th="Price">${{ $details['price'] }}</td>
                                     <td data-th="Quantity">
-                                        <input type="number" value="{{ $details['quantity'] }}"
-                                               class="form-control quantity update-cart"/>
+                                        <input type="number" value="{{ $details['quantity'] }}" class="form-control quantity update-cart"/>
                                     </td>
                                     <td data-th="Subtotal" class="text-center">
                                         ${{ $details['price'] * $details['quantity'] }}

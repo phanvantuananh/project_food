@@ -16,7 +16,17 @@
         .modal-dialog {
             max-width: 700px;
         }
-
+        .relative {
+            background-color: #2c3034;
+        }
+        .text-base {
+            color: #fff;
+            font-weight: 700;
+        }
+        .leading-5 {
+            color: #fff;
+            opacity: 0.9;
+        }
     </style>
 @endpush
 @section('content-table')
@@ -66,7 +76,7 @@
                             <div class="modal-body">
                                 <div class="row">
                                     <div class="col-md-4 text-center">
-                                        <img src="/image/{{ $user->image }}" width="200px" style="border-radius: 200px;width: 300px;
+                                        <img src="{{asset( 'storage/' . $user->image)}}" width="200px" style="border-radius: 200px;width: 300px;
             height: 300px;" class="mb-3">
                                     </div>
                                     <div class="col-md-8 mb-auto ">

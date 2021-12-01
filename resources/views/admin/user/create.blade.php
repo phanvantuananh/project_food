@@ -81,11 +81,7 @@
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="" class="form-label">Role</label>
-                        <input type="number" class="form-control" id="" name="role" placeholder="Enter role...">
-                        @error('role')
-                        <div class="mess-err">{{ $message }}</div>
-                        @enderror
+                        <input type="hidden" class="form-control" id="" name="role" value="2">
                     </div>
                 </div>
             </div>

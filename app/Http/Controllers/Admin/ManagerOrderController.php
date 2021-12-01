@@ -38,6 +38,7 @@ class ManagerOrderController extends Controller
     public function store(ManagerOrderRequest $request)
     {
         Orders::create($request->all());
+        notify()->success('Add new successfully!!');
         return redirect()->route('order_item.create');
     }
 
@@ -70,6 +71,7 @@ class ManagerOrderController extends Controller
     public function update(Request $request, Orders $order)
     {
         $order->update($request->all());
+        notify()->success('Update successfully!!');
         return redirect()->route('order.index');
     }
 

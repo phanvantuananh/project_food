@@ -9,9 +9,11 @@
             color: #F28123;
             font-weight: 700;
         }
+
         .nav-link:hover {
             color: #F28123;
         }
+
         .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
             color: #fff;
             background-color: #F28123;
@@ -31,10 +33,10 @@
     </div>
     <div class="login__section">
         <div class="container">
-            <form action="" method="POST" enctype="multipart/form-data">
-                @csrf
-                <div class="row">
-                    <div class="col-md-4 " style="border-right: 2px solid #a0aec0;">
+            <div class="row">
+                <div class="col-md-4 " style="border-right: 2px solid #a0aec0;">
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        @csrf
                         <div class="avatar-upload">
                             <div class="avatar-edit">
                                 <input type='file' name="image" id="imageUpload" accept=".png, .jpg, .jpeg"/>
@@ -66,96 +68,185 @@
                                 <input type="text" class="form-control" name="age"
                                        value="{{ old('name', $user->age) }}">
                             </div>
-                            <div class="input-group mb-2">
+                            <div class="input-group mb-4">
                                 <span class="input-group-text" id="basic-addon1"><i class="fas fa-phone"></i></span>
                                 <input type="text" class="form-control" name="phone"
                                        value="{{ old('name', $user->phone) }}">
                             </div>
+                            <div class="input-group mb-2">
+                                <span class="input-group-text" id="basic-addon1"><i
+                                        class="fas fa-map-marker-alt"></i></span>
+                                <input type="text" class="form-control" name="address"
+                                       value="{{ old('name', $user->address) }}">
+                            </div>
                             <button type="submit" class="btn btn-outline-success login__section__form__btn-login mt-2">
                                 Edit Profile
                             </button>
-                            <a href="{{route('change-pass', [ Auth::id()])}}" class="btn btn-outline-success login__section__form__btn-login mt-2">change
+                            <a href="{{route('change-pass', Auth::id())}}"
+                               class="btn btn-outline-success login__section__form__btn-login mt-2">change
                                 password</a>
                         </div>
-                    </div>
-                    <div class="col-md-8">
-                        <ul class="nav nav-pills mb-3 mt-4" id="pills-tab" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
-                                        data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
-                                        aria-selected="true">Order List
-                                </button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
-                                        data-bs-target="#pills-profile" type="button" role="tab"
-                                        aria-controls="pills-profile" aria-selected="false">Cart
-                                </button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
-                                        data-bs-target="#pills-contact" type="button" role="tab"
-                                        aria-controls="pills-contact" aria-selected="false">Favorite
-                                </button>
-                            </li>
-                        </ul>
-                        <div class="tab-content" id="pills-tabContent">
-                            <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
-                                 aria-labelledby="pills-home-tab">
-                                <div class="login__section__form">
-                                    <div class="table-responsive" id="tableLstOrder" style="margin-top: 30px">
-                                        <table class="table">
-                                            <thead>
+                    </form>
+                </div>
+                <div class="col-md-8">
+
+                    <ul class="nav nav-pills mb-3 mt-4" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
+                                    aria-selected="true">Order List
+                            </button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                             aria-labelledby="pills-home-tab">
+                            <div class="login__section__form">
+                                <div class="table-responsive" id="tableLstOrder" style="margin-top: 30px">
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Receiver</th>
+                                            <th scope="col">Phone</th>
+                                            <th scope="col">Email</th>
+                                            <th scope="col">Address</th>
+                                            <th scope="col">Total</th>
+                                            <th scope="col">Status</th>
+                                            <th scope="col">Details</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($user->orders as $order)
                                             <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">Order User</th>
-                                                <th scope="col">Receiver</th>
-                                                <th scope="col">Phone</th>
-                                                <th scope="col">Address</th>
-                                                <th scope="col">Email</th>
-                                                <th scope="col">Total</th>
-                                                <th scope="col">Status</th>
+
+                                                <th scope="row">{{++$i}}</th>
+                                                <td>{{$order->order_user}}</td>
+                                                <td>{{$order->order_phone}}</td>
+                                                <td>{{$order->order_email}}</td>
+                                                <td>{{$order->order_address}}</td>
+                                                <td>${{$order->order_total}}</td>
+                                                <td>
+                                                    @if($order->order_status == 1)
+                                                        <a href="" class="btn btn-sm btn-success"
+                                                           style="pointer-events: none">
+                                                            <i class="fal fa-check"></i>
+                                                        </a>
+                                                    @else
+                                                        <a href="" class="btn btn-sm btn-danger"
+                                                           style="pointer-events: none">
+                                                            <i class="fas fa-minus"></i>
+                                                        </a>
+                                                    @endif
+                                                </td>
+                                                <td>
+                                                    <a href="" class="btn-sm btn btn-primary"
+                                                       data-bs-toggle="modal"
+                                                       data-bs-target="#exampleModal{{$order->id}}">
+                                                        <i class="fas fa-eye"></i>
+                                                    </a>
+                                                </td>
+
                                             </tr>
-                                            </thead>
-                                            <tbody>
-                                            @foreach($orders as $order)
-                                                <tr>
-                                                    <th scope="row">{{++$i}}</th>
-                                                    <td>{{$order->user->name}}</td>
-                                                    <td>{{$order->order_user}}</td>
-                                                    <td>{{$order->order_phone}}</td>
-                                                    <td>{{$order->order_address}}</td>
-                                                    <td>{{$order->order_email}}</td>
-                                                    <td>${{$order->order_total}}</td>
-                                                    <td>
-                                                        @if($order->order_status == 1)
-                                                            <a href="" class="btn btn-sm btn-success"
-                                                               style="pointer-events: none"><i
-                                                                    class="fal fa-check"></i></a>
-                                                        @else
-                                                            <a href="" class="btn btn-sm btn-danger"
-                                                               style="pointer-events: none"><i
-                                                                    class="fas fa-minus"></i></a>
-                                                        @endif
-                                                    </td>
-                                                </tr>
-                                            @endforeach
-                                            </tbody>
-                                        </table>
-                                        {!! $orders->links() !!}
-                                    </div>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
+                                    {{--                                        {!! $orders->links() !!}--}}
                                 </div>
-                            </div>
-                            <div class="tab-pane fade" id="pills-profile" role="tabpanel"
-                                 aria-labelledby="pills-profile-tab">ádasda
-                            </div>
-                            <div class="tab-pane fade" id="pills-contact" role="tabpanel"
-                                 aria-labelledby="pills-contact-tab">ádas.
+
+
+                                @foreach($user->orderItems as $order)
+                                    <div class="modal fade" id="exampleModal{{$order->order->id}}" tabindex="-1"
+                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Order
+                                                        Details</h5>
+                                                    <button type="button" class="btn-close"
+                                                            data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="row">
+                                                        <div class="col-md-12 mb-auto ">
+                                                            <div class="modal-body__text mt-2">
+                                                                <p>Order code:
+                                                                    <span><strong> {{$order->order->id}}</strong></span>
+                                                                </p>
+                                                                <p>Order User:
+                                                                    <span><strong> {{$order->order->order_user}}</strong></span>
+                                                                </p>
+                                                                <p>Order Email:
+                                                                    <span><strong> {{$order->order->order_email}}</strong></span>
+                                                                </p>
+                                                                <p>Order Phone:
+                                                                    <span><strong> {{$order->order->order_phone}}</strong></span>
+                                                                </p>
+                                                                <p>Order Address:
+                                                                    <span><strong> {{$order->order->order_address}}</strong></span>
+                                                                </p>
+                                                                <p>Order date:
+                                                                    <span><strong> {{$order->order->created_at}}</strong></span>
+                                                                </p>
+                                                                <p>Order details:</p>
+
+                                                                <table class="table">
+                                                                    <thead>
+                                                                    <tr class="text-center">
+                                                                        <th scope="col">#</th>
+                                                                        <th scope="col">Product</th>
+                                                                        <th scope="col">Quantity</th>
+                                                                        <th scope="col">Price</th>
+                                                                        <th scope="col">Total</th>
+                                                                    </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                    @foreach($user->orderItems as $product)
+                                                                        @if($product->order_id == $order->order->id)
+                                                                            <tr class="text-center">
+                                                                                <th scope="row">1</th>
+                                                                                <td>{{$product->product->product_name}}</td>
+                                                                                <td>{{$product->quantity}}</td>
+                                                                                <td>{{$product->product->product_price}}
+                                                                                    $
+                                                                                </td>
+                                                                                <td>{{$product->total}}$</td>
+                                                                            </tr>
+                                                                        @endif
+                                                                    @endforeach
+                                                                    </tbody>
+                                                                </table>
+
+                                                                <p>Shipping:
+                                                                    <span><strong> 30$</strong></span>
+                                                                </p>
+                                                                <p>Order Total:
+                                                                    <span><strong> {{$order->order->order_total}}$</strong></span>
+                                                                </p>
+                                                                <p>Order Status:
+                                                                    <span><strong> {{$order->order->order_status==1?'Đã Nhận Hàng':'Chưa Nhận Hàng'}}</strong></span>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-outline-secondary"
+                                                            data-bs-dismiss="modal">Close
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
                 </div>
-            </form>
+            </div>
+
         </div>
     </div>
 @endsection

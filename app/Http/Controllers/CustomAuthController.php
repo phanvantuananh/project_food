@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\RegisterRequest;
+use App\Models\OrderItem;
 use App\Models\Orders;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -31,7 +32,6 @@ class CustomAuthController extends Controller
         if (auth()->attempt($credentials, $request->input('remember'))) {
             return redirect('home');
         }
-
         return redirect()->route('login');
     }
 
@@ -51,6 +51,7 @@ class CustomAuthController extends Controller
             $model->image = str_replace('public/', '', $path);
         }
         $model->save();
+        notify()->success('Register in successfully!!');
         return redirect('login');
     }
 
@@ -63,8 +64,8 @@ class CustomAuthController extends Controller
     public function userViewInfo(Request $request, $id)
     {
         $user = User::find($id);
-        $orders = Orders::where('user_id', $id)->orderby('id', 'Asc')->paginate(5);
-        return view('client.user-information.information', compact('user', 'orders'))->with('i', (request()->input('page', 1) - 1) * 5);
+        $user->load('orderItems', 'orders');
+        return view('client.user-information.information', compact('user'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     public function updateUserInformation(Request $request, $id)

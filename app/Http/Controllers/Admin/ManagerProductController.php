@@ -38,14 +38,15 @@ class ManagerProductController extends Controller
      */
     public function store(ManagerProductRequest $managerProductRequest)
     {
-        $add = $managerProductRequest->all();
-        if ($image = $managerProductRequest->file('product_image')) {
-            $destinationPath = 'image/';
-            $profileImage = date('YmdHis') . '.' . $image->getClientOriginalExtension();
-            $image->move($destinationPath, $profileImage);
-            $add['product_image'] = "$profileImage";
+        $model = new Product();
+        $model->fill($managerProductRequest->all());
+        if ($managerProductRequest->hasFile('product_image')) {
+            $newFileName = uniqid() . '-' . $managerProductRequest->product_image->getClientOriginalName();
+            $path = $managerProductRequest->product_image->storeAs('public/uploads/image', $newFileName);
+            $model->product_image = str_replace('public/', '', $path);
         }
-        Product::create($add);
+        $model->save();
+        notify()->success('Add new product successfully!!');
         return redirect()->route('product.index');
     }
 
@@ -63,9 +64,10 @@ class ManagerProductController extends Controller
      * Show the form for editing the specified resource.
      *
      */
-    public function edit(Product $product)
+    public function edit($id)
     {
         $categories = Category::all();
+        $product = Product::find($id);
         return view('admin.product.edit', compact('categories', 'product'));
     }
 
@@ -73,19 +75,17 @@ class ManagerProductController extends Controller
      * Update the specified resource in storage.
      *
      */
-    public function update(ManagerProductRequest $managerProductRequest, Product $product)
+    public function update(ManagerProductRequest $managerProductRequest, $id)
     {
-        $input = $managerProductRequest->all();
-
-        if ($image = $managerProductRequest->file('product_image')) {
-            $destinationPath = 'image/';
-            $profileImage = date('YmdHis') . '.' . $image->getClientOriginalExtension();
-            $image->move($destinationPath, $profileImage);
-            $input['product_image'] = "$profileImage";
-        } else {
-            unset($input['product_image']);
+        $model = Product::find($id);
+        $model->fill($managerProductRequest->all());
+        if ($managerProductRequest->hasFile('product_image')) {
+            $newFileName = uniqid() . '-' . $managerProductRequest->product_image->getClientOriginalName();
+            $path = $managerProductRequest->product_image->storeAs('public/uploads/image', $newFileName);
+            $model->product_image = str_replace('public/', '', $path);
         }
-        $product->update($input);
+        $model->save();
+        notify()->success('Update successfully!!');
         return redirect()->route('product.index');
     }
 

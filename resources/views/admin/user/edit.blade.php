@@ -82,7 +82,7 @@
                     <div class="mb-3">
                         <label for="" class="form-label">Image</label>
                         <input type="file" class="form-control mb-2" id="" name="image">
-                        <img src="/image/{{ $user->image }}" width="150px">
+                        <img src="{{asset( 'storage/' . $user->image)}}" width="150px">
                         @error('image')
                         <div class="mess-err">{{ $message }}</div>
                         @enderror

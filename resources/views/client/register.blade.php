@@ -71,21 +71,21 @@
                     </div>
                 </div>
                 <div class="col-md-5 login__section__contact">
-                    <div class="login__section__contact__info">
+                    <div class="login__section__contact__info mt-2">
                         <i class="fas fa-home"></i>
                         <div class="login__section__contact__info__text">
                             <h3>Buttonwood, California.</h3>
                             <p>Rosemead, CA 91770</p>
                         </div>
                     </div>
-                    <div class="login__section__contact__info">
+                    <div class="login__section__contact__info mt-3">
                         <i class="fa fa-tablet" aria-hidden="true"></i>
                         <div class="login__section__contact__info__text">
                             <h3>+1 253 565 2365</h3>
                             <p>Mon to Fri 9am to 6pm</p>
                         </div>
                     </div>
-                    <div class="login__section__contact__info">
+                    <div class="login__section__contact__info mt-3">
                         <i class="fa fa-envelope" aria-hidden="true"></i>
                         <div class="login__section__contact__info__text">
                             <h3>support@colorlib.com</h3>
@@ -93,7 +93,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

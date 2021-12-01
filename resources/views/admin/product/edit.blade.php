@@ -73,9 +73,9 @@
                     </div>
                     <div class="mb-3">
                         <label for="" class="form-label">Product Image</label>
-                        <input type="file" class="form-control" id="" name="product_image"
+                        <input type="file" class="form-control mb-3" id="" name="product_image"
                                placeholder="Enter product quantity...">
-                        <img src="/image/{{ $product->product_image }}" width="150px">
+                        <img src="{{asset( 'storage/' . $product->product_image)}}" width="150px">
 
                     </div>
                     <div class="mb-3">

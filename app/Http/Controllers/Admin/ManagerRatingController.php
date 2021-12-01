@@ -76,6 +76,7 @@ class ManagerRatingController extends Controller
             'star_number' => 'required',
         ]);
         $rating->update($request->all());
+        notify()->success('Update successfully!!');
         return redirect()->route('rating.index');
     }
 

@@ -19,4 +19,5 @@ Route::group(['prefix' => '/', 'middleware' => 'check.role.login'], function () 
     Route::resource('admin/order', \Admin\ManagerOrderController::class);
     Route::resource('admin/order_item', \Admin\ManagerOrderItemController::class);
     Route::resource('admin/rating', \Admin\ManagerRatingController::class);
+    Route::resource('admin/contact_us', \Admin\ManagerContactUsController::class);
 });

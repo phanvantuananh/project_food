@@ -6,19 +6,16 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\ManagerUserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class ManagerUserController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     *
-     */
+         */
     public function index()
     {
-//        $users = User::orderBy('id', 'Asc')->paginate(5);
-//        return view('admin.user.index', compact('users'))
-//            ->with('i', (request()->input('page', 1) - 1) * 5);
         $users = User::all();
         return view('admin.user.index', compact('users'));
     }
@@ -40,14 +37,16 @@ class ManagerUserController extends Controller
      */
     public function store(ManagerUserRequest $managerUserRequest)
     {
-        $add = $managerUserRequest->all();
-        if ($image = $managerUserRequest->file('image')) {
-            $destinationPath = 'image/';
-            $profileImage = date('YmdHis') . '.' . $image->getClientOriginalExtension();
-            $image->move($destinationPath, $profileImage);
-            $add['image'] = "$profileImage";
+        $model = new User();
+        $model->fill($managerUserRequest->all());
+        $model->password = Hash::make($managerUserRequest['password']);
+        if ($managerUserRequest->hasFile('image')) {
+            $newFileName = uniqid() . '-' . $managerUserRequest->image->getClientOriginalName();
+            $path = $managerUserRequest->image->storeAs('public/uploads/image', $newFileName);
+            $model->image = str_replace('public/', '', $path);
         }
-        User::create($add);
+        $model->save();
+        notify()->success('Add new user in successfully!!');
         return redirect()->route('user.index');
     }
 
@@ -64,8 +63,9 @@ class ManagerUserController extends Controller
      * Show the form for editing the specified resource.
      *
      */
-    public function edit(User $user)
+    public function edit($id)
     {
+        $user = User::find($id);
         return view('admin.user.edit', compact('user'));
     }
 
@@ -73,19 +73,18 @@ class ManagerUserController extends Controller
      * Update the specified resource in storage.
      *
      */
-    public function update(ManagerUserRequest $managerUserRequest, User $user)
+    public function update(ManagerUserRequest $managerUserRequest, $id)
     {
-        $input = $managerUserRequest->all();
-
-        if ($image = $managerUserRequest->file('image')) {
-            $destinationPath = 'image/';
-            $profileImage = date('YmdHis') . '.' . $image->getClientOriginalExtension();
-            $image->move($destinationPath, $profileImage);
-            $input['image'] = "$profileImage";
-        } else {
-            unset($input['image']);
+        $model = User::find($id);
+        $model->fill($managerUserRequest->all());
+        $model->password = Hash::make($managerUserRequest['password']);
+        if ($managerUserRequest->hasFile('image')) {
+            $newFileName = uniqid() . '-' . $managerUserRequest->image->getClientOriginalName();
+            $path = $managerUserRequest->image->storeAs('public/uploads/image', $newFileName);
+            $model->image = str_replace('public/', '', $path);
         }
-        $user->update($input);
+        $model->save();
+        notify()->success('Update user in successfully!!');
         return redirect()->route('user.index');
     }
 
@@ -96,6 +95,7 @@ class ManagerUserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
+        notify()->success('Delete user in successfully!!');
         return redirect()->route('user.index');
     }
 }

@@ -40,6 +40,7 @@ class ManagerCategoryController extends Controller
         ]);
         $add = $request->all();
         Category::create($add);
+        notify()->success('Add new successfully!!');
         return redirect()->route('category.index');
     }
 
@@ -75,6 +76,7 @@ class ManagerCategoryController extends Controller
         ]);
         $update = $request->all();
         $category->update($update);
+        notify()->success('Update successfully!!');
         return redirect()->route('category.index');
     }
 

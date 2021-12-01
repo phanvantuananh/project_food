@@ -58,4 +58,17 @@ class User extends Authenticatable
     {
         return $this->hasMany(Rating::class);
     }
+    public function contactUs()
+    {
+        return $this->hasMany(ContactUs::class);
+    }
+    public function orderItems()
+    {
+        return $this->HasManyThrough(
+            OrderItem::class,
+            Orders::class,
+            'user_id',
+            'order_id',
+        );
+    }
 }

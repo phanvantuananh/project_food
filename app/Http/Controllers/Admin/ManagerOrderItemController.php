@@ -44,6 +44,7 @@ class ManagerOrderItemController extends Controller
             'total' => 'required',
         ]);
         OrderItem::create($request->all());
+        notify()->success('Add new successfully!!');
         return redirect()->route('order_item.index');
     }
 
@@ -78,6 +79,7 @@ class ManagerOrderItemController extends Controller
             'total' => 'required',
         ]);
         $orderItem->update($request->all());
+        notify()->success('Update successfully!!');
         return redirect()->route('order_item.index');
     }
 
