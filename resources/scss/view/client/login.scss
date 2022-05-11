@@ -1,0 +1,144 @@
+.header {
+    position: relative;
+    min-height: 50vh;
+    display: flex;
+    background-image: url('https://technext.github.io/frutika/assets/img/breadcrumb-bg.jpg');
+    background-size: cover;
+    background-position: bottom;
+    background-attachment: fixed;
+    &__title {
+        position: absolute;
+        top: 40%;
+        left: 20%;
+        right: 20%;
+        text-align: center;
+        text-align: center;
+        &__text {
+            p {
+                color: #F28123;
+                font-weight: 700;
+                letter-spacing: 7px;
+            }
+            h1 {
+                color: #fff;
+                font-weight: 700;
+                font-size: 70px;
+            }
+            &__btn {
+                margin-top: 20px;
+                &__lst {
+                    float: right;
+                    padding: 7px 25px;
+                    background-color: #F28123;
+                    color: #fff;
+                    border-radius: 30px;
+                    text-decoration: none;
+                }
+                &__lst:hover {
+                    background-color: #051922;
+                    color: #F28123;
+                }
+                &__contact__us {
+                    float: left;
+                    padding: 5px 25px;
+                    color: #fff;
+                    border-radius: 30px;
+                    text-decoration: none;
+                    border: 2px solid #F28123;
+                }
+                &__contact__us:hover {
+                    background-color: #F28123;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+.header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #142630;
+    opacity: 0.9;
+}
+// start login section
+.login__section {
+    min-height: 70vh;
+    margin: 80px 0px;
+    font-family: inherit;
+    &__form {
+        padding-top: 50px;
+        margin-left: 50px;
+        &__title {
+            font-size: 30px;
+            font-weight: 700;
+        }
+        .form-control{
+            border: 1px solid #e5e6e9;
+            border-radius: 0px;
+            height: 48px;
+            padding-left: 18px;
+            font-size: 15px;
+        }
+        .error {
+            color: red;
+            font-style: italic;
+            font-size: 15px;
+            margin-left: 15px;
+        }
+        &__with {
+            &__gg, &__fb {
+                width: 100%;
+            }
+        }
+        &__rdo__gender {
+            display: flex;
+            .form-check {
+                margin-right: 10px;
+            }
+        }
+        &__text {
+            &__register {
+                color: #6c757d;
+                text-decoration: none;
+                list-style: none;
+                margin-right: 10px;
+                font-size: 17px;
+                float: left;
+            }
+            &__register:hover{
+                color: #6c757d;
+            }
+        }
+    }
+    &__contact {
+        padding-top: 120px;
+        &__info {
+            display: flex;
+            margin-left: 100px;
+            i {
+                margin: 0px 15px;
+                font-size: 25px;
+                text-align: center;
+                color: #6c757d;
+                opacity: 0.7;
+            }
+            &__text {
+                font-family: "Poppins", sans-serif;
+                h3 {
+                    font-size: 20px;
+                    font-weight: 400;
+                }
+                p {
+                    font-size: 15px;
+                    color: #8a8a8a;
+                }
+            }
+        }
+
+    }
+}
+@import "responsive/login_media";

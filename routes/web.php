@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CustomAuthController;
+use App\Http\Controllers\SocialiteAuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,10 +19,20 @@ use Illuminate\Support\Facades\Route;
 # GUEST
 ###################
 
-Route::get('/', function () {
+Route::get('/home', function () {
     return view('home');
 });
-Route::get('/test', [\App\Http\Controllers\TestController::class, 'index']);
+
+Route::get('login', [CustomAuthController::class, 'index'])->name('login');
+Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom');
+Route::get('register', [CustomAuthController::class, 'register'])->name('register');
+Route::post('custom-register', [CustomAuthController::class, 'customRegister'])->name('register.custom');
+Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
+
+
+Route::get('google', [SocialiteAuthController::class, 'googleRedirect'])->name('auth/google');
+Route::get('/auth/google/callback', [SocialiteAuthController::class, 'loginWithGoogle']);
+
 ###################
 # AUTH
 ###################
