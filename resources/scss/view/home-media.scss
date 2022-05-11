@@ -1,0 +1,150 @@
+@media screen and (max-width: 660px) {
+    // media menu top
+    .menu__top {
+        margin-top: 15px;
+        position: absolute;
+        top: 0;
+        left: 5%;
+        right: 5%;
+        &__logo {
+            float: left;
+            font-size: 30px;
+        }
+        &__icon__toggle {
+            display: block;
+            font-size: 25px;
+            float: right;
+            color: #fff;
+            padding: 0px 10px;
+            border: 1px solid #fff;
+        }
+        &__main__menu {
+            display: none;
+            list-style: none;
+            font-size: 15px;
+            margin-top: 60px;
+            background-color: #142630;
+            opacity: 0.9;
+            padding-bottom: 10px;
+            ul {
+                padding: 0;
+                list-style-type: none;
+                li {
+                    display: flex;
+                    justify-content: center;
+                    &__icons {
+                        display: none;
+                    }
+                }
+            }
+        }
+        &__main__menu__show {
+            display: block;
+        }
+    }
+
+    /* media header */
+    .header {
+        &__title {
+            top: 25%;
+            left: 5%;
+            right: 5%;
+            font-size: 15px;
+            &__text {
+                top: 25%;
+                left: 5%;
+                right: 5%;
+                font-size: 15px;
+                p {
+                    letter-spacing: 3px;
+                    font-weight: 700;
+                }
+                h1 {
+                    color: #fff;
+                    font-weight: 700;
+                    font-size: 30px;
+                }
+                &__btn {
+                    &__lst {
+                        width: 100%;
+                    }
+                    &__contact__us {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+    /* media list section  */
+    .list__section {
+        padding: 50px 0px;
+        &__shipping {
+            padding-bottom: 15px;
+            i {
+                margin-left: 10px;
+            }
+        }
+        &__phone {
+            padding-bottom: 15px;
+            i {
+                margin-left: 10px;
+            }
+        }
+        &__load {
+            padding-bottom: 15px;
+            i {
+                margin-left: 10px;
+            }
+        }
+    }
+    /* media product section  */
+    .product__section {
+        margin-top: 80px;
+        margin-bottom: 50px;
+        &__title {
+            p {
+                width: 100%;
+            }
+        }
+        &__single__item {
+            margin-top: 50px;
+        }
+    }
+    /* media baner section  */
+    .cart__banner {
+        &__img {
+            &__cart__sale {
+                top: -100px;
+                left: 30px;
+                font-size: 13px;
+            }
+        }
+    }
+    /* media feedback section */
+    .feedback__section {
+        margin: 30px 0px;
+        img {
+            margin-bottom: 15px;
+        }
+        h3 {
+            margin: 10px 0px;
+        }
+        h5 {
+            margin: 10px 0px;
+        }
+        &__text {
+            width: 290px;
+            margin-top: 20px;
+        }
+        i {
+            margin-top: 10px;
+        }
+    }
+    /* media footer */
+    .footer {
+        padding: 80px 0px;
+    }
+
+}
+@media screen and (max-width: 1000px) and (min-width: 700px) {
+}

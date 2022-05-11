@@ -15,8 +15,8 @@ const publicJsFolder = 'public/js';
 const publicFontFolder = 'public/fonts';
 
 mix.js('resources/js/app.js', publicJsFolder)
-    .sass('resources/scss/app.scss', publicCssFolder);
-
+    .sass('resources/scss/app.scss', publicCssFolder)
+    .sass('resources/scss/view/home.scss', publicCssFolder);
 
 mix.options({
     processCssUrls: false
