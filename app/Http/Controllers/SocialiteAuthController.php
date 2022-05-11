@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Socialite\Facades\Socialite;
@@ -36,5 +37,36 @@ class SocialiteAuthController extends Controller
             Auth::login($createUser);
         }
         return redirect('/home');
+    }
+
+    public function facebookRedirect()
+    {
+        return Socialite::driver('facebook')->redirect();
+    }
+
+    public function loginWithFacebook()
+    {
+        try {
+            $role = 2;
+            $facebookUser = Socialite::driver('facebook')->setHttpClient(new Client(['verify' => false]))->user();
+            $isUser = User::where('facebook_id', $facebookUser->id)->first();
+
+            if ($isUser) {
+                Auth::login($isUser);
+            } else {
+                $createUser = User::create([
+                    'name' => $facebookUser->name,
+                    'email' => $facebookUser->email,
+                    'facebook_id' => $facebookUser->id,
+                    'password' => Hash::make('123123123'),
+                    'image' => $facebookUser->avatar,
+                    'role' => $role,
+                ]);
+                Auth::login($createUser);
+            }
+            return redirect('/home');
+        } catch (Exception $exception) {
+            dd($exception->getMessage());
+        }
     }
 }

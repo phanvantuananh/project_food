@@ -17,10 +17,10 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->boolean('order_status');
-            $table->string('order_user', 70);
-            $table->string('order_email', 70);
-            $table->string('order_phone', 30);
-            $table->string('order_address', 70);
+            $table->string('order_user', 70)->nullable();
+            $table->string('order_email', 70)->nullable();
+            $table->string('order_phone', 30)->nullable();
+            $table->string('order_address', 70)->nullable();
             $table->integer('order_total')->unsigned();
             $table->rememberToken();
             $table->timestamps();

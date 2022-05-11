@@ -36,4 +36,9 @@ return [
         'redirect' => env('GOOGLE_APP_CLIENT_LINK'),
     ],
 
+    'facebook' => [
+        'client_id' => env('FACEBOOK_APP_CLIENT_ID'),
+        'client_secret' => env('FACEBOOK_APP_CLIENT_SECRET'),
+        'redirect' => env('FACEBOOK_APP_CLIENT_LINK'),
+    ],
 ];

@@ -177,6 +177,11 @@ return [
 
         Laravel\Socialite\SocialiteServiceProvider::class,
 
+//        package sweetAlert
+//        RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+//        RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+//        Jorenvh\Share\Providers\ShareServiceProvider::class,
+        Mckenziearts\Notify\LaravelNotifyServiceProvider::class,
 
     ],
 
@@ -233,7 +238,6 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
-
 
     ],
 

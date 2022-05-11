@@ -30,7 +30,7 @@ class OrdersFactory extends Factory
             'order_email' => $this->faker->safeEmail(),
             'order_phone' => $this->faker->phoneNumber(),
             'order_address' => $this->faker->address(),
-            'order_total' => $this->faker->numberBetween($min = 1, $maX = 1000),
+            'order_total' => $this->faker->numberBetween($min = 1, $maX = 10000),
             'remember_token' => Str::random(10),
         ];
     }
